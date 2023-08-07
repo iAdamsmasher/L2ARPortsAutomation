@@ -34,12 +34,10 @@ namespace L2ARAutomationSerialPort
             this.labelBaudRate = new System.Windows.Forms.Label();
             this.labelDataBits = new System.Windows.Forms.Label();
             this.labelStopBits = new System.Windows.Forms.Label();
-            this.labelParty = new System.Windows.Forms.Label();
             this.comboBoxPorts = new System.Windows.Forms.ComboBox();
             this.comboBoxBoundRate = new System.Windows.Forms.ComboBox();
             this.comboBoxDataBits = new System.Windows.Forms.ComboBox();
             this.comboBoxStopBits = new System.Windows.Forms.ComboBox();
-            this.comboBoxParty = new System.Windows.Forms.ComboBox();
             this.buttonOpen = new System.Windows.Forms.Button();
             this.buttonOpenDrawer = new System.Windows.Forms.Button();
             this.buttonCloseDrawer = new System.Windows.Forms.Button();
@@ -49,8 +47,9 @@ namespace L2ARAutomationSerialPort
             this.buttonUSBOut = new System.Windows.Forms.Button();
             this.buttonP3In = new System.Windows.Forms.Button();
             this.buttonP3Out = new System.Windows.Forms.Button();
-            this.listBoxResult = new System.Windows.Forms.ListBox();
             this.buttonStatus = new System.Windows.Forms.Button();
+            this.textBoxResult = new System.Windows.Forms.TextBox();
+            this.buttonClear = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // labelPort
@@ -89,15 +88,6 @@ namespace L2ARAutomationSerialPort
             this.labelStopBits.TabIndex = 3;
             this.labelStopBits.Text = "Stop Bits: ";
             // 
-            // labelParty
-            // 
-            this.labelParty.AutoSize = true;
-            this.labelParty.Location = new System.Drawing.Point(77, 262);
-            this.labelParty.Name = "labelParty";
-            this.labelParty.Size = new System.Drawing.Size(49, 20);
-            this.labelParty.TabIndex = 4;
-            this.labelParty.Text = "Party:";
-            // 
             // comboBoxPorts
             // 
             this.comboBoxPorts.FormattingEnabled = true;
@@ -110,14 +100,19 @@ namespace L2ARAutomationSerialPort
             this.comboBoxPorts.Name = "comboBoxPorts";
             this.comboBoxPorts.Size = new System.Drawing.Size(121, 28);
             this.comboBoxPorts.TabIndex = 6;
+            this.comboBoxPorts.Text = "COM2";
             // 
             // comboBoxBoundRate
             // 
             this.comboBoxBoundRate.FormattingEnabled = true;
+            this.comboBoxBoundRate.Items.AddRange(new object[] {
+            "9600",
+            "115200"});
             this.comboBoxBoundRate.Location = new System.Drawing.Point(168, 89);
             this.comboBoxBoundRate.Name = "comboBoxBoundRate";
             this.comboBoxBoundRate.Size = new System.Drawing.Size(121, 28);
             this.comboBoxBoundRate.TabIndex = 7;
+            this.comboBoxBoundRate.Text = "9600";
             // 
             // comboBoxDataBits
             // 
@@ -126,22 +121,19 @@ namespace L2ARAutomationSerialPort
             this.comboBoxDataBits.Name = "comboBoxDataBits";
             this.comboBoxDataBits.Size = new System.Drawing.Size(121, 28);
             this.comboBoxDataBits.TabIndex = 8;
+            this.comboBoxDataBits.Text = "8";
             // 
             // comboBoxStopBits
             // 
             this.comboBoxStopBits.FormattingEnabled = true;
+            this.comboBoxStopBits.Items.AddRange(new object[] {
+            "One",
+            "Two"});
             this.comboBoxStopBits.Location = new System.Drawing.Point(168, 205);
             this.comboBoxStopBits.Name = "comboBoxStopBits";
             this.comboBoxStopBits.Size = new System.Drawing.Size(121, 28);
             this.comboBoxStopBits.TabIndex = 9;
-            // 
-            // comboBoxParty
-            // 
-            this.comboBoxParty.FormattingEnabled = true;
-            this.comboBoxParty.Location = new System.Drawing.Point(168, 257);
-            this.comboBoxParty.Name = "comboBoxParty";
-            this.comboBoxParty.Size = new System.Drawing.Size(121, 28);
-            this.comboBoxParty.TabIndex = 10;
+            this.comboBoxStopBits.Text = "One";
             // 
             // buttonOpen
             // 
@@ -170,6 +162,7 @@ namespace L2ARAutomationSerialPort
             this.buttonCloseDrawer.TabIndex = 13;
             this.buttonCloseDrawer.Text = "Close";
             this.buttonCloseDrawer.UseVisualStyleBackColor = true;
+            this.buttonCloseDrawer.Click += new System.EventHandler(this.buttonCloseDrawer_Click);
             // 
             // buttonUpClip
             // 
@@ -179,6 +172,7 @@ namespace L2ARAutomationSerialPort
             this.buttonUpClip.TabIndex = 14;
             this.buttonUpClip.Text = "Up Clip";
             this.buttonUpClip.UseVisualStyleBackColor = true;
+            this.buttonUpClip.Click += new System.EventHandler(this.buttonUpClip_Click);
             // 
             // buttonDownClip
             // 
@@ -188,6 +182,7 @@ namespace L2ARAutomationSerialPort
             this.buttonDownClip.TabIndex = 15;
             this.buttonDownClip.Text = "Down Clip";
             this.buttonDownClip.UseVisualStyleBackColor = true;
+            this.buttonDownClip.Click += new System.EventHandler(this.buttonDownClip_Click);
             // 
             // buttonUSBIn
             // 
@@ -197,6 +192,7 @@ namespace L2ARAutomationSerialPort
             this.buttonUSBIn.TabIndex = 16;
             this.buttonUSBIn.Text = "USB IN";
             this.buttonUSBIn.UseVisualStyleBackColor = true;
+            this.buttonUSBIn.Click += new System.EventHandler(this.buttonUSBIn_Click);
             // 
             // buttonUSBOut
             // 
@@ -206,6 +202,7 @@ namespace L2ARAutomationSerialPort
             this.buttonUSBOut.TabIndex = 17;
             this.buttonUSBOut.Text = "USB OUT";
             this.buttonUSBOut.UseVisualStyleBackColor = true;
+            this.buttonUSBOut.Click += new System.EventHandler(this.buttonUSBOut_Click);
             // 
             // buttonP3In
             // 
@@ -215,6 +212,7 @@ namespace L2ARAutomationSerialPort
             this.buttonP3In.TabIndex = 18;
             this.buttonP3In.Text = "P3 IN";
             this.buttonP3In.UseVisualStyleBackColor = true;
+            this.buttonP3In.Click += new System.EventHandler(this.buttonP3In_Click);
             // 
             // buttonP3Out
             // 
@@ -224,16 +222,7 @@ namespace L2ARAutomationSerialPort
             this.buttonP3Out.TabIndex = 19;
             this.buttonP3Out.Text = "P3 OUT";
             this.buttonP3Out.UseVisualStyleBackColor = true;
-            // 
-            // listBoxResult
-            // 
-            this.listBoxResult.BackColor = System.Drawing.Color.LightBlue;
-            this.listBoxResult.FormattingEnabled = true;
-            this.listBoxResult.ItemHeight = 20;
-            this.listBoxResult.Location = new System.Drawing.Point(479, 327);
-            this.listBoxResult.Name = "listBoxResult";
-            this.listBoxResult.Size = new System.Drawing.Size(362, 184);
-            this.listBoxResult.TabIndex = 20;
+            this.buttonP3Out.Click += new System.EventHandler(this.buttonP3Out_Click);
             // 
             // buttonStatus
             // 
@@ -243,14 +232,34 @@ namespace L2ARAutomationSerialPort
             this.buttonStatus.TabIndex = 21;
             this.buttonStatus.Text = "STATUS";
             this.buttonStatus.UseVisualStyleBackColor = true;
+            this.buttonStatus.Click += new System.EventHandler(this.buttonStatus_Click);
+            // 
+            // textBoxResult
+            // 
+            this.textBoxResult.Location = new System.Drawing.Point(12, 318);
+            this.textBoxResult.Multiline = true;
+            this.textBoxResult.Name = "textBoxResult";
+            this.textBoxResult.Size = new System.Drawing.Size(920, 275);
+            this.textBoxResult.TabIndex = 22;
+            // 
+            // buttonClear
+            // 
+            this.buttonClear.Location = new System.Drawing.Point(835, 281);
+            this.buttonClear.Name = "buttonClear";
+            this.buttonClear.Size = new System.Drawing.Size(97, 31);
+            this.buttonClear.TabIndex = 23;
+            this.buttonClear.Text = "CLEAR";
+            this.buttonClear.UseVisualStyleBackColor = true;
+            this.buttonClear.Click += new System.EventHandler(this.buttonClear_Click);
             // 
             // FormSerialPortAutomation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(944, 629);
+            this.Controls.Add(this.buttonClear);
+            this.Controls.Add(this.textBoxResult);
             this.Controls.Add(this.buttonStatus);
-            this.Controls.Add(this.listBoxResult);
             this.Controls.Add(this.buttonP3Out);
             this.Controls.Add(this.buttonP3In);
             this.Controls.Add(this.buttonUSBOut);
@@ -260,12 +269,10 @@ namespace L2ARAutomationSerialPort
             this.Controls.Add(this.buttonCloseDrawer);
             this.Controls.Add(this.buttonOpenDrawer);
             this.Controls.Add(this.buttonOpen);
-            this.Controls.Add(this.comboBoxParty);
             this.Controls.Add(this.comboBoxStopBits);
             this.Controls.Add(this.comboBoxDataBits);
             this.Controls.Add(this.comboBoxBoundRate);
             this.Controls.Add(this.comboBoxPorts);
-            this.Controls.Add(this.labelParty);
             this.Controls.Add(this.labelStopBits);
             this.Controls.Add(this.labelDataBits);
             this.Controls.Add(this.labelBaudRate);
@@ -284,12 +291,10 @@ namespace L2ARAutomationSerialPort
         private System.Windows.Forms.Label labelBaudRate;
         private System.Windows.Forms.Label labelDataBits;
         private System.Windows.Forms.Label labelStopBits;
-        private System.Windows.Forms.Label labelParty;
         private System.Windows.Forms.ComboBox comboBoxPorts;
         private System.Windows.Forms.ComboBox comboBoxBoundRate;
         private System.Windows.Forms.ComboBox comboBoxDataBits;
         private System.Windows.Forms.ComboBox comboBoxStopBits;
-        private System.Windows.Forms.ComboBox comboBoxParty;
         private System.Windows.Forms.Button buttonOpen;
         private System.Windows.Forms.Button buttonOpenDrawer;
         private System.Windows.Forms.Button buttonCloseDrawer;
@@ -299,8 +304,9 @@ namespace L2ARAutomationSerialPort
         private System.Windows.Forms.Button buttonUSBOut;
         private System.Windows.Forms.Button buttonP3In;
         private System.Windows.Forms.Button buttonP3Out;
-        private System.Windows.Forms.ListBox listBoxResult;
         private System.Windows.Forms.Button buttonStatus;
+        private System.Windows.Forms.TextBox textBoxResult;
+        private System.Windows.Forms.Button buttonClear;
     }
 }
 
