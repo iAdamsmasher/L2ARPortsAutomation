@@ -38,7 +38,6 @@ namespace L2ARAutomationSerialPort
             this.comboBoxBoundRate = new System.Windows.Forms.ComboBox();
             this.comboBoxDataBits = new System.Windows.Forms.ComboBox();
             this.comboBoxStopBits = new System.Windows.Forms.ComboBox();
-            this.buttonOpen = new System.Windows.Forms.Button();
             this.buttonOpenDrawer = new System.Windows.Forms.Button();
             this.buttonCloseDrawer = new System.Windows.Forms.Button();
             this.buttonUpClip = new System.Windows.Forms.Button();
@@ -136,15 +135,6 @@ namespace L2ARAutomationSerialPort
             this.comboBoxStopBits.Size = new System.Drawing.Size(121, 28);
             this.comboBoxStopBits.TabIndex = 9;
             this.comboBoxStopBits.Text = "One";
-            // 
-            // buttonOpen
-            // 
-            this.buttonOpen.Location = new System.Drawing.Point(313, 43);
-            this.buttonOpen.Name = "buttonOpen";
-            this.buttonOpen.Size = new System.Drawing.Size(75, 29);
-            this.buttonOpen.TabIndex = 11;
-            this.buttonOpen.Text = "Open";
-            this.buttonOpen.UseVisualStyleBackColor = true;
             // 
             // buttonOpenDrawer
             // 
@@ -290,7 +280,6 @@ namespace L2ARAutomationSerialPort
             this.Controls.Add(this.buttonUpClip);
             this.Controls.Add(this.buttonCloseDrawer);
             this.Controls.Add(this.buttonOpenDrawer);
-            this.Controls.Add(this.buttonOpen);
             this.Controls.Add(this.comboBoxStopBits);
             this.Controls.Add(this.comboBoxDataBits);
             this.Controls.Add(this.comboBoxBoundRate);
@@ -317,7 +306,6 @@ namespace L2ARAutomationSerialPort
         private System.Windows.Forms.ComboBox comboBoxBoundRate;
         private System.Windows.Forms.ComboBox comboBoxDataBits;
         private System.Windows.Forms.ComboBox comboBoxStopBits;
-        private System.Windows.Forms.Button buttonOpen;
         private System.Windows.Forms.Button buttonOpenDrawer;
         private System.Windows.Forms.Button buttonCloseDrawer;
         private System.Windows.Forms.Button buttonUpClip;
