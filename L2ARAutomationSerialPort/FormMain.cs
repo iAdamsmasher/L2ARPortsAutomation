@@ -118,6 +118,20 @@ namespace L2ARAutomationSerialPort
             buttonP3In.BackColor = Color.Red;
         }
 
+        private void buttonAudio_Click(object sender, EventArgs e)
+        {
+            sendSerialComand("AUDIO");
+            buttonAudio.BackColor = Color.Green;
+            buttonRadio.BackColor = Color.Red;
+        }
+
+        private void buttonRadio_Click(object sender, EventArgs e)
+        {
+            sendSerialComand("RADIO");
+            buttonRadio.BackColor = Color.Green;
+            buttonAudio.BackColor = Color.Red;
+        }
+
         private void buttonClear_Click(object sender, EventArgs e)
         {
             textBoxResult.Text = "";
