@@ -38,11 +38,12 @@ namespace L2ARAutomationSerialPort
                 if (comboBoxStopBits.Text == "Two")
                     serialPort.StopBits = StopBits.Two;
 
+                serialPort.Open();
                 serialPort.Write(serialCmd);
 
 
                 if (serialPort.IsOpen)
-                    serialPort.Close();
+                     serialPort.Close();
 
             }
             catch (Exception ex)
