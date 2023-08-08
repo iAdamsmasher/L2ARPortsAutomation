@@ -277,7 +277,7 @@ namespace L2ARAutomationSerialPort
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(950, 524);
+            this.ClientSize = new System.Drawing.Size(950, 604);
             this.Controls.Add(this.textBoxSend);
             this.Controls.Add(this.buttonSend);
             this.Controls.Add(this.buttonRadio);
