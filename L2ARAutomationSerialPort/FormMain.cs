@@ -27,6 +27,11 @@ namespace L2ARAutomationSerialPort
                 serialPort = new SerialPort(comboBoxPorts.Text);
                 serialPort.BaudRate = int.Parse(comboBoxBoundRate.Text);
                 serialPort.DataBits = int.Parse(comboBoxDataBits.Text);
+                serialPort.DtrEnable = false;
+                serialPort.RtsEnable = false;
+                serialPort.ReadTimeout = 10000;
+                serialPort.WriteTimeout = 10000;
+                serialPort.Parity = Parity.None;
 
                 if (comboBoxStopBits.Text == "One")
                     serialPort.StopBits = StopBits.One;
@@ -35,12 +40,6 @@ namespace L2ARAutomationSerialPort
 
                 serialPort.Write(serialCmd);
 
-                if (serialCmd == "STATUS")
-                {
-                    serialPort.DataReceived += new SerialDataReceivedEventHandler(DataReceivedHandler);
-                    serialPort.Open();
-                    serialPort.Close();
-                }
 
                 if (serialPort.IsOpen)
                     serialPort.Close();
@@ -51,13 +50,6 @@ namespace L2ARAutomationSerialPort
                 MessageBox.Show("Error : " + ex);
             }
 
-        }
-        private void DataReceivedHandler(object sender, SerialDataReceivedEventArgs e)
-        {
-            SerialPort sp = (SerialPort)sender;
-            string indata = sp.ReadExisting();
-            textBoxResult.Text += "Data Received:";
-            textBoxResult.Text += indata;
         }
         private void buttonOpenDrawer_Click(object sender, EventArgs e)
         {
@@ -131,10 +123,14 @@ namespace L2ARAutomationSerialPort
             buttonRadio.BackColor = Color.Green;
             buttonAudio.BackColor = Color.Red;
         }
-
         private void buttonClear_Click(object sender, EventArgs e)
         {
             textBoxResult.Text = "";
+        }
+
+        private void buttonSend_Click(object sender, EventArgs e)
+        {
+            sendSerialComand(textBoxSend.Text);
         }
     }
 }

@@ -51,6 +51,8 @@ namespace L2ARAutomationSerialPort
             this.buttonClear = new System.Windows.Forms.Button();
             this.buttonAudio = new System.Windows.Forms.Button();
             this.buttonRadio = new System.Windows.Forms.Button();
+            this.buttonSend = new System.Windows.Forms.Button();
+            this.textBoxSend = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // labelPort
@@ -262,11 +264,30 @@ namespace L2ARAutomationSerialPort
             this.buttonRadio.UseVisualStyleBackColor = true;
             this.buttonRadio.Click += new System.EventHandler(this.buttonRadio_Click);
             // 
+            // buttonSend
+            // 
+            this.buttonSend.Location = new System.Drawing.Point(12, 260);
+            this.buttonSend.Name = "buttonSend";
+            this.buttonSend.Size = new System.Drawing.Size(107, 52);
+            this.buttonSend.TabIndex = 27;
+            this.buttonSend.Text = "SEND";
+            this.buttonSend.UseVisualStyleBackColor = true;
+            this.buttonSend.Click += new System.EventHandler(this.buttonSend_Click);
+            // 
+            // textBoxSend
+            // 
+            this.textBoxSend.Location = new System.Drawing.Point(125, 286);
+            this.textBoxSend.Name = "textBoxSend";
+            this.textBoxSend.Size = new System.Drawing.Size(676, 26);
+            this.textBoxSend.TabIndex = 28;
+            // 
             // FormSerialPortAutomation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(944, 629);
+            this.ClientSize = new System.Drawing.Size(786, 524);
+            this.Controls.Add(this.textBoxSend);
+            this.Controls.Add(this.buttonSend);
             this.Controls.Add(this.buttonRadio);
             this.Controls.Add(this.buttonAudio);
             this.Controls.Add(this.buttonClear);
@@ -319,5 +340,7 @@ namespace L2ARAutomationSerialPort
         private System.Windows.Forms.Button buttonClear;
         private System.Windows.Forms.Button buttonAudio;
         private System.Windows.Forms.Button buttonRadio;
+        private System.Windows.Forms.Button buttonSend;
+        private System.Windows.Forms.TextBox textBoxSend;
     }
 }
