@@ -46,7 +46,6 @@ namespace L2ARAutomationSerialPort
             this.buttonUSBOut = new System.Windows.Forms.Button();
             this.buttonP3In = new System.Windows.Forms.Button();
             this.buttonP3Out = new System.Windows.Forms.Button();
-            this.buttonStatus = new System.Windows.Forms.Button();
             this.textBoxResult = new System.Windows.Forms.TextBox();
             this.buttonClear = new System.Windows.Forms.Button();
             this.buttonAudio = new System.Windows.Forms.Button();
@@ -218,13 +217,6 @@ namespace L2ARAutomationSerialPort
             this.buttonP3Out.UseVisualStyleBackColor = true;
             this.buttonP3Out.Click += new System.EventHandler(this.buttonP3Out_Click);
             // 
-            // buttonStatus
-            // 
-            this.buttonStatus.Location = new System.Drawing.Point(0, 0);
-            this.buttonStatus.Name = "buttonStatus";
-            this.buttonStatus.Size = new System.Drawing.Size(75, 23);
-            this.buttonStatus.TabIndex = 24;
-            // 
             // textBoxResult
             // 
             this.textBoxResult.Location = new System.Drawing.Point(12, 318);
@@ -285,14 +277,13 @@ namespace L2ARAutomationSerialPort
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(786, 524);
+            this.ClientSize = new System.Drawing.Size(950, 524);
             this.Controls.Add(this.textBoxSend);
             this.Controls.Add(this.buttonSend);
             this.Controls.Add(this.buttonRadio);
             this.Controls.Add(this.buttonAudio);
             this.Controls.Add(this.buttonClear);
             this.Controls.Add(this.textBoxResult);
-            this.Controls.Add(this.buttonStatus);
             this.Controls.Add(this.buttonP3Out);
             this.Controls.Add(this.buttonP3In);
             this.Controls.Add(this.buttonUSBOut);
@@ -309,6 +300,7 @@ namespace L2ARAutomationSerialPort
             this.Controls.Add(this.labelDataBits);
             this.Controls.Add(this.labelBaudRate);
             this.Controls.Add(this.labelPort);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormSerialPortAutomation";
             this.Text = "L2AR Port Automation";
@@ -335,7 +327,6 @@ namespace L2ARAutomationSerialPort
         private System.Windows.Forms.Button buttonUSBOut;
         private System.Windows.Forms.Button buttonP3In;
         private System.Windows.Forms.Button buttonP3Out;
-        private System.Windows.Forms.Button buttonStatus;
         private System.Windows.Forms.TextBox textBoxResult;
         private System.Windows.Forms.Button buttonClear;
         private System.Windows.Forms.Button buttonAudio;
